@@ -53,7 +53,7 @@ Optionally you can switch the [context](https://kubernetes.io/docs/tasks/access-
 
 | Variable | Type |
 | --- | --- |
-| KUBE_CONFIG | string (base64) |
+| KUBE_CONFIG | string (base64 *encoded*) |
 | KUBE_CONTEXT | string |
 
 ### KUBECONFIG file
@@ -65,12 +65,13 @@ For this you need to pass:
 - password
 - cluster CA certificate
 
-| Variable | Type |
-| --- | --- |
-| KUBE_HOST | string |
-| KUBE_USERNAME | string |
-| KUBE_PASSWORD | string |
-| KUBE_CERTIFICATE | string |
+| Variable | Type | Required |
+| --- | --- | --- |
+| KUBE_HOST | string | required |
+| KUBE_CERTIFICATE | string (base64 *encoded*) | required |
+| KUBE_USERNAME | string | Optional |
+| KUBE_PASSWORD | string | Optional |
+| KUBE_TOKEN | string (base64 *decoded*) | Optional |
 
 ## Example
 ```yaml
